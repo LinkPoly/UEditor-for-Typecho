@@ -1,10 +1,10 @@
 <?php
 /**
  * 在线安装UEditor for Typecho
- * (写于18岁后的第一个春节)
+ * 创建于2013年,2022年起此项目转移至Dongguan LinkPoly Design Service CO., LTD.由开源小组维护
  * 
- * @author Shengzhi Chen
- * @link http://chensz.com
+ * @author LinkPoly
+ * @link http://linkpoly.com
  */
 
 
@@ -98,7 +98,7 @@ try {
 	}
 	
 	// 收尾工作
-	echo '已完成安装, 请<a href="?delete">删除安装文件</a>';
+	echo '已完成安装, <a href="?delete">请点击这里删除安装文件</a>';
 	
 } catch (Exception $e) {
 	echo $e->getMessage();

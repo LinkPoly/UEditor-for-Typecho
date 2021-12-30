@@ -7,8 +7,8 @@
  */
 include "Uploader2.class.php";
 
-$sitePath = substr( __TYPECHO_ROOT_DIR__, strlen($_SERVER['DOCUMENT_ROOT'])). '/';
-$sitePath = ltrim($sitePath, "\\");
+$sitePath = substr( __TYPECHO_ROOT_DIR__, strlen($_SERVER['DOCUMENT_ROOT']));
+$sitePath = trim($sitePath, "\\/"). '/';
 
 /* 上传配置 */
 $base64 = "upload";
