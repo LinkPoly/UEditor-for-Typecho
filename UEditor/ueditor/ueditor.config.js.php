@@ -358,7 +358,7 @@ $response->setContentType('text/javascript');
         //,rgb2Hex:true               //默认产出的数据中的color自动从rgb格式变成16进制格式
 
 		// xss 过滤是否开启,inserthtml等操作
-		,xssFilterRules: true
+		,xssFilterRules: false
 		//input xss过滤
 		,inputXssFilter: true
 		//output xss过滤

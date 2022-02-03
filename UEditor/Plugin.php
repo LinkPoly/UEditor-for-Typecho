@@ -6,8 +6,8 @@
  * @author LinkPoly
  * @version 2022
  * @link http://linkpoly.com
- * Date: 2021-12-29
- * Time: 08:20:22
+ * Date: 2022-2-3
+ * Time: 21:00:00
  */
 class UEditor_Plugin implements Typecho_Plugin_Interface
 {
@@ -105,12 +105,38 @@ class UEditor_Plugin implements Typecho_Plugin_Interface
 
         echo '<script type="text/javascript" src="'. $configJs. '"></script><script type="text/javascript" src="'. $js. '"></script>';
         echo '<script type="text/javascript">
-            var ue1;
-        	window.onload = function() {
-				// 渲染
-                ue1 = UE.getEditor("text");
-        	}
-    
+var ue1;
+window.onload = function() {
+    ue1 = UE.getEditor("text");
+}
+UE.registerUI("button",function(ue1,moreButton){
+    ue1.registerCommand(moreButton,{
+        execCommand:function(){
+            ue1.execCommand("inserthtml", "<!--more-->");
+        }
+    });
+    var btn = new UE.ui.Button({
+        name:"moreButton",
+        title:"插入More分隔符",
+        cssRules :"background-position: -460px -40px;",
+        onclick:function () {
+            ue1.execCommand(moreButton);
+        }
+    });
+
+    ue1.addListener("selectionchange", function () {
+        var state = ue1.queryCommandState(moreButton);
+        if (state == -1) {
+            btn.setDisabled(true);
+            btn.setChecked(false);
+        } else {
+            btn.setDisabled(false);
+            btn.setChecked(state);
+        }
+    });
+    return btn;
+});
+
     // 保存草稿时同步
 	document.getElementById("btn-save").onclick = function() {
         ue1.sync("text");
