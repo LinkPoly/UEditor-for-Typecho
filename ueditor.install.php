@@ -9,7 +9,7 @@
 
 
 /** 项目地址 */
-$_online_url = 'https://codeload.github.com/chanshengzhi/UEditor-for-Typecho/zip/master';
+$_online_url = 'https://codeload.github.com/linkpoly/UEditor-for-Typecho/zip/master';
 
 /** 下载到本地的文件名称 */
 $_local_file = 'ueditor.zip';
